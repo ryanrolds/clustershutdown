@@ -1,0 +1,9 @@
+{
+  "name": "clustershutdown",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "async": "^1.4.2"
+  },
+  "author": "Ryan Olds <ryanrolds@gmail.com>"
+}
