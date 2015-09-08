@@ -35,7 +35,7 @@ The exit code (130) and lack of "Master exit" event is concerning.
 
 ## process.exit(0)
 
-This calls the masters exit handler and worker exit handlers, but doesn't fire master's worker exit handlers.
+This calls the masters exit handler and worker exit handlers, but doesn't fire master's worker exit handlers. Already a bug files for this, it's been defered until Node.js and io.js converge.
 
     $ node exit.js
     $ echo $?
@@ -67,7 +67,7 @@ This calls the masters exit handler and worker exit handlers, but doesn't fire m
 
 ## cluster.disconnect()
 
-This is from the Node.js docs. Everything almost fires as expected (one master worker event is missing, sometimes). Aside from what I suspect is a bug/race condition in Node.js (will investigate on my own time) this exits in an orderly fashion. The racecondition could posisbly be worked around by invoking diconnect on each worker rather then using cluster.disconnect(). 
+This is from the Node.js docs. Everything almost fires as expected (one master worker event is sometimes missing). Aside from what I suspect is a bug/race condition in Node.js/io.js (will investigate on my own time) this exits in an orderly fashion. The racecondition could posisbly be worked around by invoking diconnect on each worker rather then using cluster.disconnect(). 
 
     $ node disconnect.js
     $ echo $?
